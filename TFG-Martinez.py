@@ -7,11 +7,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 ilo = pandas.read_csv('/content/TFG-Martinez/ILR_TUMT_NOC_RT_A-filtered-2023-10-18.csv')
-print(ilo)
 
 ilo = ilo[['ref_area.label','time','obs_value']]
 ilo.rename(columns={'ref_area.label':'ADMIN','obs_value':'Trade union density rate (%)'},inplace=True)
-table = table.rename_axis(columns=None)
 
 world = geopandas.read_file('/content/TFG-Martinez/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 
