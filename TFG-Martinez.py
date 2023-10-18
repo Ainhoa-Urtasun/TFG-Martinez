@@ -10,7 +10,7 @@ lp = pandas.read_csv('/content/TFG-Martinez/GDP_211P_NOC_NB_A-full-2023-10-18.cs
 
 lp = lp[['ref_area.label','time','obs_value']]
 lp.rename(columns={'ref_area.label':'ADMIN','obs_value':'LP'},inplace=True)
-lp1 = lp[['ADMIN','Trade union density rate (%)']]
+lp1 = lp[['ADMIN','LP']]
 lp1 = lp1.groupby(['ADMIN']).mean().reset_index()
 lp1 = lp1.fillna(0)
 
