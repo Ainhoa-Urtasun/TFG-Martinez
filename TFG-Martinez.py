@@ -6,7 +6,7 @@ import pyproj
 import warnings
 warnings.filterwarnings("ignore")
 
-ilo = pandas.read_csv('/content/TFG-Martinez/ILR_TIMT_NOC_RT_A-filtered-2023-10-18.csv')
+ilo = pandas.read_csv('/content/TFG-Martinez/ILR_TUMT_NOC_RT_A-filtered-2023-10-18.csv')
 print(ilo)
 
 world = geopandas.read_file('/content/TFG-Martinez/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
