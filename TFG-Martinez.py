@@ -18,7 +18,7 @@ world = geopandas.read_file('/content/TFG-Martinez/ne_110m_admin_0_countries.zip
 
 mydata = ilo1.merge(world,on='ADMIN',how='right')
 mydata = geopandas.GeoDataFrame(mydata,geometry='geometry')
-fig,ax = plt.subplots(1,figsize=(20,20))
+fig,ax = plt.subplots(1,figsize=(50,50))
 mydata.plot(column='Trade union density rate (%)',alpha=0.8,cmap='viridis',ax=ax,legend=True,legend_kwds={'shrink':0.3})
 ax.set_title('Trade Union Density Rate (%)\nSource: International Labour Organization')
 ax.axis('off')
