@@ -1,5 +1,3 @@
-import requests
-import json
 import pandas
 import geopandas
 import matplotlib.pyplot as plt
@@ -8,27 +6,10 @@ import pyproj
 import warnings
 warnings.filterwarnings("ignore")
 
-fixed = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/'
-url = '{}{}'.format(fixed,'lfsa_ehomp')
-metadata = requests.get(url).json()
-print(metadata['label'])
-data = pandas.Series(metadata['value']).rename(index=int).sort_index()
-n = 1 # Initialize the result to 1
-for num in metadata['size']:
-  n *= num
-data = data.reindex(range(0,n),fill_value=0)
-structure = [pandas.DataFrame({key:val for key,val in metadata['dimension'][dim]['category'].items()}).sort_values('index')['label'].values for dim in metadata['id']]
-data.index = pandas.MultiIndex.from_product(structure,names=metadata['id'])
-mydata = data.reset_index()
-mydata = mydata[mydata.wstatus=='Employed persons']
-mydata = mydata[mydata.sex=='Total']
-mydata = mydata[mydata.age=='From 20 to 64 years']
-mydata = mydata[mydata.frequenc=='Usually']
-mydata = mydata[['geo','time',0]]
-mydata.rename(columns={'geo':'ADMIN'},inplace=True)
-mydata.rename(columns={0:'percentage'},inplace=True)
+ilo = pandas.read_csv('/content/TFG-Martinez/ILR_TIMT_NOC_RT_A-filtered-2023-10-18.csv')
+print(ilo)
 
-world = geopandas.read_file('/content/TFG-Lizarraga/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
+world = geopandas.read_file('/content/TFG-Martinez/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 polygon = Polygon([(-25,35),(40,35),(40,75),(-25,75)])
 europe = geopandas.clip(world,polygon)
 
