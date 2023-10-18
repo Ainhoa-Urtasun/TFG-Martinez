@@ -16,6 +16,6 @@ world = geopandas.read_file('/content/TFG-Martinez/ne_110m_admin_0_countries.zip
 mydata = ilo.merge(world,on='ADMIN',how='right')
 mydata = geopandas.GeoDataFrame(mydata,geometry='geometry')
 fig,ax = plt.subplots(1,figsize=(10,10))
-mydata.plot(column='percentage',alpha=0.8,cmap='cool',ax=ax,legend=True)
-ax.set_title('Employed persons usually working from home from 20 to 64 years\nas a percentage of total employment (source: Eurostat)')
+mydata.plot(column='Trade union density rate (%)',alpha=0.8,cmap='cool',ax=ax,legend=True)
+ax.set_title('Trade Union Density Rate in Percentages\n(source: International Labour Organization)')
 ax.axis('off')
