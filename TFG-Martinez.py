@@ -15,7 +15,7 @@ lp1 = lp1.groupby(['ADMIN']).mean().reset_index()
 lp1 = lp1.fillna(0)
 
 world = geopandas.read_file('/content/TFG-Martinez/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
-print(world)
+world.loc[world.ADMIN=='United States of America','ADMIN'] = 'United States'
 mydata = lp1.merge(world,on='ADMIN',how='right')
 mydata = geopandas.GeoDataFrame(mydata,geometry='geometry')
 fig,ax = plt.subplots(1,figsize=(50,50))
