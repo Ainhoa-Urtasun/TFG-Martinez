@@ -7,6 +7,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 lp = pandas.read_csv('/content/TFG-Martinez/GDP_211P_NOC_NB_A-full-2023-10-18.csv')
+table = lp
 
 lp = lp[['ref_area.label','time','obs_value']]
 lp.rename(columns={'ref_area.label':'ADMIN','obs_value':'LP'},inplace=True)
