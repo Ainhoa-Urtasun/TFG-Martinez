@@ -21,7 +21,7 @@ world.loc[world.ADMIN=='United States of America','ADMIN'] = 'United States'
 mydata = lp1.merge(world,on='ADMIN',how='right')
 mydata = geopandas.GeoDataFrame(mydata,geometry='geometry')
 
-fig,ax = plt.subplots(1,figsize=(100,100))
+fig,ax = plt.subplots(1,figsize=(25,25))
 mydata.plot(column='LP',alpha=0.8,cmap='viridis',ax=ax,legend=True,legend_kwds={'shrink':0.3})
 ax.set_title('Output per worker (GDP constant 2017 international $ at PPP)\nSource: International Labour Organization',size='x-large')
 ax.axis('off')
