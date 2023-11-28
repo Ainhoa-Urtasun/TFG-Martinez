@@ -14,6 +14,7 @@ lp.rename(columns={'ref_area.label':'ADMIN','obs_value':'LP'},inplace=True)
 lp1 = lp[['ADMIN','LP']]
 lp1 = lp1.groupby(['ADMIN']).mean().reset_index()
 lp1 = lp1.fillna(0)
+print(lp1)
 
 world = geopandas.read_file('/content/TFG-Martinez/ne_110m_admin_0_countries.zip')[['ADMIN','geometry']]
 world.loc[world.ADMIN=='United States of America','ADMIN'] = 'United States'
