@@ -11,7 +11,7 @@ leadernet = lp[lp['ref_area.label'].isin(['Spain','Mexico','Brazil','Uruguay','U
 
 lp = lp[['ref_area.label','time','obs_value']]
 lp.rename(columns={'ref_area.label':'ADMIN','obs_value':'LP'},inplace=True)
-print(lp1)
+print(lp)
 lp1 = lp[['ADMIN','LP']]
 lp1 = lp1.groupby(['ADMIN']).mean().reset_index()
 lp1 = lp1.fillna(0)
