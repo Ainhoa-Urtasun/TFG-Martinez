@@ -11,9 +11,6 @@ lp = pandas.read_csv('/content/TFG-Martinez/GDP_211P_NOC_NB_A-full-2023-10-18.cs
 lp = lp[lp.time==2022]
 lp = lp[['ref_area.label','obs_value']]
 lp.rename(columns={'ref_area.label':'ADMIN','obs_value':'LP'},inplace=True)
-print(lp)
-#lp1 = lp[['ADMIN','LP']]
-#lp1 = lp1.groupby(['ADMIN']).mean().reset_index()
 lp = lp.fillna(0)
 leadernet = lp[lp['ADMIN'].isin(['Spain','Mexico','Brazil','Uruguay','United States','India','South Africa'])]
 
