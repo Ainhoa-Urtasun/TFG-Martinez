@@ -22,6 +22,6 @@ mydata = geopandas.GeoDataFrame(mydata,geometry='geometry')
 
 fig,ax = plt.subplots(1,figsize=(25,25))
 mydata.plot(column='LP',alpha=0.8,cmap='viridis',ax=ax,legend=True,legend_kwds={'shrink':0.3})
-ax.set_title('Output per worker (GDP in 2022 based on constant 2017 international $ at PPP)\nSource: International Labour Organization',size='x-large')
+ax.set_title('GDP per worker in 2022 (at 2017 int$ PPP)\nSource: International Labour Organization',size='x-large')
 ax.axis('off')
 fig.savefig('/content/TFG-Martinez/World.png')
